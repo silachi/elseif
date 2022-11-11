@@ -1,0 +1,41 @@
+USE [4372-Mohammad Hussain]
+
+CREATE TABLE BOOKS (
+id_book INT PRIMARY KEY IDENTITY(1,1),
+name_book VARCHAR(30) NOT NULL,
+price_book FLOAT NOT NULL
+);
+
+SELECT * FROM BOOKS;
+
+CREATE TABLE STUDENTS(
+id_st INT PRIMARY KEY IDENTITY(1,1),
+name_st VARCHAR(30) NOT NULL,
+id_book INT CONSTRAINT  bookconstraitn FOREIGN KEY REFERENCES BOOKS(id_book));
+
+SELECT * FROM STUDENTS;
+
+INSERT INTO BOOKS 
+VALUES ('BOOK1',100),
+('BOOK2',200),
+('BOOK3',300),
+('BOOK4',400)
+SELECT * FROM BOOKS;
+
+
+
+
+
+
+USE [4372-Mohammad Hussain]
+
+
+CREATE PROCEDURE spGetBookDetails
+@name_book VARCHAR(25)
+AS
+BEGIN
+select * from BOOKS WHERE name_book = @name_book;
+END
+
+ --spGetBookDetails 'BOOK1'
+--spGETBOOKS
